@@ -1,29 +1,24 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-/**
- * The base typography styles for the Material Dashboard 2 PRO React.
- * You can add new typography style using this file.
- * You can customized the typography styles for the entire Material Dashboard 2 PRO React using thie file.
- */
-
-// Material Dashboard 2 React Base Styles
+import { Palette } from "@mui/material";
+import { TypographyOptions } from "@mui/material/styles/createTypography";
 import colors from "assets/theme/base/colors";
-
-// Material Dashboard 2 React Helper Functions
 import pxToRem from "assets/theme/functions/pxToRem";
+
+type CustomTypographySizeType = {
+  xxs: string;
+  xs: string;
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+  "2xl": string;
+  "3xl": string;
+};
+
+export type CustomTypographyType = {
+  fontWeightLighter: number;
+  size: CustomTypographySizeType;
+} & any &
+  (TypographyOptions | ((palette: Palette) => TypographyOptions));
 
 const { dark } = colors;
 
@@ -57,7 +52,7 @@ const baseDisplayProperties = {
   lineHeight: 1.2,
 };
 
-const typography = {
+const typography: CustomTypographyType = {
   fontFamily: baseProperties.fontFamily,
   fontWeightLighter: baseProperties.fontWeightLighter,
   fontWeightLight: baseProperties.fontWeightLight,

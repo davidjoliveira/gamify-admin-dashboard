@@ -1,9 +1,11 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+
+import { setCreatingGame, useMaterialUIController } from "context";
+
 import GVSBSRegistration from "components/GVSBSRegistration";
 import CreateGameFormRoot from "./CreateGameFormRoot";
-import { setCreatingGame, useMaterialUIController } from "context";
-import { useForm } from "react-hook-form";
 import gameService from "services/game-service";
-import { useState } from "react";
 
 function CreateGame() {
 	const {
@@ -17,7 +19,7 @@ function CreateGame() {
 	const { creatingGame } = controller;
 	
 	const submitCreateGame = async (data: any) => {
-		const r = await gameService.createGame({name: data.gameName, descrption: data.gameDescription});
+		const r = await gameService.createGame({name: data.gameName, description: data.gameDescription});
 		if (!!r) {
 
 		}

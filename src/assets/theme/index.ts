@@ -4,6 +4,7 @@ import colors, { PalletCollorsFull } from "assets/theme/base/colors";
 
 import breakpoints from "assets/theme/base/breakpoints";
 import globals from "assets/theme/base/globals";
+import typography, { CustomTypographyType } from "assets/theme/base/typography";
 import borders, { SystemBorders } from "assets/theme/base/borders";
 import boxShadows, { BoxShadowsType } from "assets/theme/base/boxShadows";
 import systemConsts, { SystemConstsType } from "assets/theme/base/systemConsts";
@@ -30,6 +31,7 @@ declare module "@mui/material/styles" {
     };
 
     palette: PaletteOptions & PalletCollorsFull;
+    typography: CustomTypographyType;
     borders: SystemBorders;
     boxShadows: BoxShadowsType;
     systemConsts: SystemConstsType;
@@ -38,6 +40,7 @@ declare module "@mui/material/styles" {
     functions?: {
       [key: string]: (...p: any) => any;
     };
+    
     borders: SystemBorders;
     boxShadows: BoxShadowsType;
     systemConsts: SystemConstsType;
@@ -49,6 +52,7 @@ export default createTheme({
   palette: { ...colors },
   borders: { ...borders },
   boxShadows: { ...boxShadows },
+  typography: { ...typography },
   components: {
     MuiCssBaseline: {
       styleOverrides: {

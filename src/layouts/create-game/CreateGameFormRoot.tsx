@@ -61,7 +61,7 @@ const CreateGameFormRoot = ({ register, formState }: CreateGameFormRootType) => 
 }
 
 const submitCreateGame = async (data: any) => {
-	return GameService.createGame({name: data.gameName, descrption: data.gameDescription});
+	return GameService.createGame({name: data.gameName, description: data.gameDescription});
 }
 
 export default CreateGameFormRoot;

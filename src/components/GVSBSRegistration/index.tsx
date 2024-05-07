@@ -6,7 +6,6 @@ import { Breadcrumbs, DialogActions, DialogContent, DialogTitle } from "@mui/mat
 import GVBox from "components/GVBox";
 import GVButton from "components/GVButton";
 import { FullPalletColorsKeys } from "assets/theme/base/colors";
-import { useForm } from "react-hook-form";
 
 export type GVSBSRegistrationPropsOptions = {
 	width: number | string;
@@ -32,11 +31,6 @@ export type GVSBSRegistrationProps = {
 }
 
 const GVSBSRegistration = forwardRef<HTMLDivElement, GVSBSRegistrationProps>(({ steps, opened, options, ...rest }, ref) => {
-	const {
-    register,
-    formState,
-    handleSubmit,
-  } = useForm();
 	const [currentStep, setCurrentStep] = useState(0);
 
 	const onSubmitNext = async () => {

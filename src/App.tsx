@@ -4,25 +4,13 @@ import { ThemeProvider } from "@mui/material/styles";
 
 import theme from "assets/theme";
 
-import logo from "./logo.svg";
 import "./App.css";
 import Sidenav from "components/Sidenav";
-import { Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Games from "layouts/games";
+import ViewGame from "layouts/games/view-game/ViewGame";
 import CreateGame from "layouts/create-game";
-
-declare module "@mui/material/styles" {
-  interface Theme {
-    functions: {
-      [key: string]: (...p: any) => any;
-    };
-  }
-  interface ThemeOptions {
-    functions?: {
-      [key: string]: (...p: any) => any;
-    };
-  }
-}
+import CreateAttributes from "layouts/create-attributes";
 
 function App() {
   return (
@@ -30,10 +18,15 @@ function App() {
       <CssBaseline />
       <Sidenav brandName="Marca" />
       <CreateGame />
-      <Games></Games>
-      {/* <Routes>
-        
-      </Routes> */}
+      <Routes>
+        <Route path="/" Component={Games} />
+        <Route path="/game/:id" >
+          <Route index Component={ViewGame} />
+          <Route path="attributes" element={<CreateAttributes />} />
+          <Route path="edit" element={<h1>Edit gameeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</h1>} />
+        </Route>
+        <Route path="*" element={<Navigate to="/"/>}/>
+      </Routes>
     </ThemeProvider>
   )
   // return (
