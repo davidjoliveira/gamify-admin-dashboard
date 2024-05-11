@@ -8,7 +8,7 @@ export type AttributeTypeData = {
 }
 
 export default function useAttributeTypes() {
-  const [attributeTypes, setAttributeTypes] = useState<AttributeTypeData[] | null>(null);
+  const [attributeTypes, setAttributeTypes] = useState<AttributeTypeData[]>([]);
 
   useEffect(() => {
     const getAttributeTypes = async () => {
@@ -18,5 +18,5 @@ export default function useAttributeTypes() {
     getAttributeTypes();
   }, []);
 
-  return [attributeTypes as AttributeTypeData[] | null, setAttributeTypes as typeof setAttributeTypes];
+  return [attributeTypes as AttributeTypeData[], setAttributeTypes as typeof setAttributeTypes];
 }

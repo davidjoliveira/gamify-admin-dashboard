@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import attributeService from "services/attribute-service";
 
 export type AttributeData = {
@@ -9,9 +9,21 @@ export type AttributeData = {
   active?: boolean;
 }
 
+export type UseAttributesResult = {
+  attributes: AttributeData[];
+  setAttributes: Dispatch<SetStateAction<AttributeData[]>>;
+  refreshAttributes: () => void;
+  attributesDict: any;
+}
+
 export default function useAttributes(gameUUID: string) {
   const [ attributes, setAttributes ] = useState<AttributeData[]>([]);
   const [ refreshCount, setRefreshCount ] = useState<number>(0);
+
+  const attributesDict = attributes.reduce((acc: any, curr) => {
+    acc[curr.externalUUID] = curr;
+    return acc;
+  }, ({}));
 
   const refreshAttributes = () => {
     setRefreshCount(refreshCount + 1);
@@ -25,6 +37,5 @@ export default function useAttributes(gameUUID: string) {
     getAttributes();
   }, [refreshCount]);
 
-  return { attributes, setAttributes, refreshAttributes } as 
-    { attributes: AttributeData[], setAttributes: typeof setAttributes, refreshAttributes: typeof refreshAttributes };
+  return { attributes, setAttributes, refreshAttributes, attributesDict } as UseAttributesResult;
 }

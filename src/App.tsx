@@ -11,6 +11,7 @@ import Games from "layouts/games";
 import ViewGame from "layouts/games/view-game/ViewGame";
 import CreateGame from "layouts/create-game";
 import CreateAttributes from "layouts/create-attributes";
+import CreateActions from "layouts/create-actions";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/game/:id" >
           <Route index Component={ViewGame} />
           <Route path="attributes" element={<CreateAttributes />} />
+          <Route path="actions" element={<CreateActions />} />
           <Route path="edit" element={<h1>Edit gameeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</h1>} />
         </Route>
         <Route path="*" element={<Navigate to="/"/>}/>

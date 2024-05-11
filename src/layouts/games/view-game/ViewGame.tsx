@@ -38,6 +38,10 @@ export default function ViewGame() {
             <GVTypography color={"text" as GradientKeys & ExtraColorKeys} variant="h3">Atributos</GVTypography>
             <a href={`/game/${gameUUID}/attributes`}><GVButton>Criar atributos</GVButton></a>
           </GVBox>
+          <GVBox>
+            <GVTypography color={"text" as GradientKeys & ExtraColorKeys} variant="h3">Ações</GVTypography>
+            <a href={`/game/${gameUUID}/actions`}><GVButton>Criar ações</GVButton></a>
+          </GVBox>
         </DashboardLayout>
       )}
     </>

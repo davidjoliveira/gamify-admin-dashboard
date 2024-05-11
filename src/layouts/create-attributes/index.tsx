@@ -2,22 +2,25 @@ import React from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm, UseFormRegister } from "react-hook-form";
 
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Icon from "@mui/material/Icon";
 
+import GVButton from "components/GVButton";
 import GVBox from "components/GVBox";
 import GVInput from "components/GVInput";
 import GVTypography from "components/GVTypography";
+
 import useAttributeTypes, { AttributeTypeData } from "hooks/attributes/useAttributeTypes";
+import useAttributes, { AttributeData } from "hooks/attributes/useAttributes";
+
+import attributeService from "services/attribute-service";
+import DataTable from "features/Tables/DataTable";
 
 import { ExtraColorKeys, FullPalletColorsKeys, GradientKeys } from "assets/theme/base/colors";
 import DashboardLayout from "layouts/system-layouts/DashboardLayout";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import GVButton from "components/GVButton";
-import DataTable from "features/Tables/DataTable";
-import useAttributes, { AttributeData } from "hooks/attributes/useAttributes";
-import attributeService from "services/attribute-service";
+
 
 type AttributeDataForm = {
   attributeName: string;
